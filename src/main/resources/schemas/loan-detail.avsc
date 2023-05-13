@@ -1,0 +1,159 @@
+{
+    "type": "record",
+    "name": "LoanDetail",
+    "namespace": "com.curso.stream.kafka.spkafkastreamdemo.schemas",
+    "fields": [
+        {
+            "name": "bankName",
+            "type": "string"
+        },
+        {
+            "name": "branch",
+            "type": "string"
+        },
+        {
+            "name": "branchAddress",
+            "type": "string"
+        },
+        {
+            "name": "loanId",
+            "type": "long"
+        },
+        {
+            "name": "loanAccountNum",
+            "type": "long"
+        },
+        {
+            "name": "loanApprovalDate",
+            "type": "string"
+        },
+        {
+            "name": "approvedLoanAmount",
+            "type": {
+                "type": "string",
+                "java-class": "java.math.BigDecimal"
+            }
+        },
+        {
+            "name": "requestedLoanAmount",
+            "type": {
+                "type": "string",
+                "java-class": "java.math.BigDecimal"
+            }
+        },
+        {
+            "name": "micrCode",
+            "type": "string"
+        },
+        {
+            "name": "applicantDetail",
+            "type": {
+                "type": "record",
+                "name": "ApplicantDetail",
+                "namespace": "com.curso.stream.kafka.spkafkastreamdemo.schemas",
+                "fields": [
+                    {
+                        "name": "firstName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "lastName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "middleName",
+                        "type": "string"
+                    },
+                    {
+                        "name": "permanentAddress",
+                        "type": "string"
+                    },
+                    {
+                        "name": "currentAddress",
+                        "type": "string"
+                    },
+                    {
+                        "name": "age",
+                        "type": "int"
+                    },
+                    {
+                        "name": "dateOfBirth",
+                        "type": "string"
+                    },
+                    {
+                        "name": "employmentDetail",
+                        "type": {
+                            "type": "record",
+                            "name": "EmploymentDetail",
+                            "fields":[
+                                {
+                                    "name": "address",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "employmentType",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "inHandSalary",
+                                    "type": {
+                                        "type": "string",
+                                        "java-class": "java.math.BigDecimal"
+                                    }
+                                },
+                                {
+                                    "name": "location",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "netSalary",
+                                    "type": {
+                                        "type": "string",
+                                        "java-class": "java.math.BigDecimal"
+                                    }
+                                },
+                                {
+                                    "name": "organizationName",
+                                    "type": "string"
+                                },
+                                {
+                                    "name": "position",
+                                    "type": "string"
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "collateralDetail",
+            "type": {
+                "type": "record",
+                "name": "CollateralDetail",
+                "namespace": "com.curso.stream.kafka.spkafkastreamdemo.schemas",
+                "fields": [
+                    {
+                        "name": "collateralDesc",
+                        "type": "string"
+                    },
+                    {
+                        "name": "collateralId",
+                        "type": "long"
+                    },
+                    {
+                        "name": "collateralType",
+                        "type": "string"
+                    },
+                    {
+                        "name": "collateralValue",
+                        "type": {
+                            "type": "string",
+                            "java-class": "java.math.BigDecimal"
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
