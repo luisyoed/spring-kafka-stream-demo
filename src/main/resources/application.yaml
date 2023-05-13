@@ -4,32 +4,47 @@ server:
   
 spring:
   kafka:
-    bootstrap-servers: "172.20.150.82:9092"
+    bootstrap-servers: pkc-ymrq7.us-east-2.aws.confluent.cloud:9092
+    properties:
+      schema:
+        registry:
+          url: https://psrc-mw731.us-east-2.aws.confluent.cloud
+      basic:
+        auth:
+          credentials:
+            source: USER_INFO
+          user:
+            info: ODXQT2ABJAGEVG7V:cPqEfFvqkKpz/xntanZKjUPqigT6B7Dmftbj7X4SPgLWvC48cwWPT8E49zaoqlmE
+      sasl:
+        jaas:
+          config: org.apache.kafka.common.security.plain.PlainLoginModule required username="KIQFGBSKI7RRBGSG" password="gyOPlUzqAq/N6sIh8EIbM8sD8SYzEnBbsiCNcWrc75QzNsYjxwwCNE045MQOo/Fb";
+        mechanism: PLAIN
+      security:
+        protocol: SASL_SSL
+      ssl:
+        endpoint:
+          identification:
+            algorithm: https
     producer:
       keySerializer: "org.apache.kafka.common.serialization.LongSerializer"
       valueSerializer: "io.confluent.kafka.serializers.KafkaAvroSerializer"
-      properties:
-        schema:
-          registry:
-            url: "http://172.20.150.82:8081"
     streams:
-      bootstrap-servers: "172.20.150.82:9092"
+      bootstrap-servers: "pkc-ymrq7.us-east-2.aws.confluent.cloud:9092"
       application-id: "sp-kafka-stream-demo-1"
     consumer:
-      group-id: "group_registrer_new_consumer_1"
-      keyDeserializer: "org.apache.kafka.common.serialization.LongDeserializer"
-      valueDeserializer: "io.confluent.kafka.serializers.KafkaAvroDeserializer"
       autoOffsetReset: "earliest"
+      group-id: "group_registrer_new_consumer_1"
+      keyDeserializer: org.apache.kafka.common.serialization.LongDeserializer
       properties:
-        schema:
-          registry:
-            url: "http://172.20.150.82:8081"
         specific:
           avro:
             reader: "true"
+      valueDeserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+
+            
 schema:
   registry:
-    url: "http://172.20.150.82:8081"
+    url:  https://psrc-mw731.us-east-2.aws.confluent.cloud
           
 topic:
   source:
